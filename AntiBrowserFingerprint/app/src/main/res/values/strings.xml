@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SecureBrowser</string>
+    <string name="search_or_url">Search or enter URL</string>
+    <string name="back">Go back</string>
+    <string name="forward">Go forward</string>
+    <string name="refresh">Refresh page</string>
+    <string name="home">Go home</string>
+    <string name="go">Go to URL</string>
+</resources>

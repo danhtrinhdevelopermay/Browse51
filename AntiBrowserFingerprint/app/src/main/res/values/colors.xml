@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#1976D2</color>
+    <color name="primary_dark">#1565C0</color>
+    <color name="accent">#03A9F4</color>
+    <color name="background">#FFFFFF</color>
+    <color name="toolbar_background">#F5F5F5</color>
+    <color name="url_bar_background">#EEEEEE</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_hint">#9E9E9E</color>
+    <color name="icon_tint">#616161</color>
+    <color name="progress_color">#1976D2</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
