@@ -103,8 +103,11 @@ MEMORY_OPTIONS = [4, 6, 8, 12, 16, 24]
 CORE_OPTIONS = [4, 6, 8]
 
 def generate_random_suffix(length=4):
-    chars = string.ascii_lowercase + string.digits
-    return ''.join(random.choice(chars) for _ in range(length))
+    # First character MUST be a letter (Android package name rule)
+    first_char = random.choice(string.ascii_lowercase)
+    # Rest can be letters and digits
+    rest_chars = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(length - 1))
+    return first_char + rest_chars
 
 def add_screen_noise(width, height, noise_range=20):
     """Add random noise to screen dimensions (±noise_range pixels)"""
