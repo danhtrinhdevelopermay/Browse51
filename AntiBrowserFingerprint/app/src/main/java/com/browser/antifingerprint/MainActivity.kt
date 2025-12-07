@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.os.Message
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -12,7 +13,6 @@ import android.webkit.*
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.browser.antifingerprint.databinding.ActivityMainBinding
-import com.browser.antifingerprint.fingerprint.FingerprintInjector
 import com.browser.antifingerprint.fingerprint.FingerprintProfile
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private lateinit var progressBar: ProgressBar
     private lateinit var fingerprintProfile: FingerprintProfile
-    private lateinit var fingerprintInjector: FingerprintInjector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         fingerprintProfile = createFingerprintProfile()
-        fingerprintInjector = FingerprintInjector(fingerprintProfile)
 
         setupWebView()
         setupUrlBar()
@@ -72,11 +70,11 @@ class MainActivity : AppCompatActivity() {
             useWideViewPort = true
             allowContentAccess = true
             allowFileAccess = false
-            mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+            mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             cacheMode = WebSettings.LOAD_DEFAULT
             userAgentString = fingerprintProfile.userAgent
-            setSupportMultipleWindows(false)
-            javaScriptCanOpenWindowsAutomatically = false
+            setSupportMultipleWindows(true)
+            javaScriptCanOpenWindowsAutomatically = true
             mediaPlaybackRequiresUserGesture = true
         }
 
@@ -90,7 +88,6 @@ class MainActivity : AppCompatActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 progressBar.visibility = View.GONE
-                // Fingerprint injection disabled - using normal browser fingerprint
             }
 
             override fun shouldOverrideUrlLoading(
@@ -123,16 +120,54 @@ class MainActivity : AppCompatActivity() {
                 super.onReceivedTitle(view, title)
                 supportActionBar?.title = title ?: getString(R.string.app_name)
             }
+
+            override fun onCreateWindow(
+                view: WebView?,
+                isDialog: Boolean,
+                isUserGesture: Boolean,
+                resultMsg: Message?
+            ): Boolean {
+                if (view == null || resultMsg == null) return false
+                
+                val newWebView = WebView(view.context).apply {
+                    settings.javaScriptEnabled = true
+                    settings.domStorageEnabled = true
+                    settings.javaScriptCanOpenWindowsAutomatically = true
+                    settings.setSupportMultipleWindows(true)
+                    settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+                    
+                    webViewClient = object : WebViewClient() {
+                        override fun shouldOverrideUrlLoading(
+                            view: WebView?,
+                            request: WebResourceRequest?
+                        ): Boolean {
+                            val url = request?.url?.toString() ?: return false
+                            this@MainActivity.webView.loadUrl(url)
+                            return true
+                        }
+                    }
+                }
+                
+                CookieManager.getInstance().apply {
+                    setAcceptCookie(true)
+                    setAcceptThirdPartyCookies(newWebView, true)
+                }
+                
+                val transport = resultMsg.obj as WebView.WebViewTransport
+                transport.webView = newWebView
+                resultMsg.sendToTarget()
+                return true
+            }
+
+            override fun onCloseWindow(window: WebView?) {
+                super.onCloseWindow(window)
+            }
         }
 
         CookieManager.getInstance().apply {
             setAcceptCookie(true)
-            setAcceptThirdPartyCookies(webView, false)
+            setAcceptThirdPartyCookies(webView, true)
         }
-    }
-
-    private fun injectFingerprintScript(webView: WebView?) {
-        webView?.evaluateJavascript(fingerprintInjector.getInjectionScript(), null)
     }
 
     private fun setupUrlBar() {
