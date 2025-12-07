@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 progressBar.visibility = View.GONE
-                injectFingerprintScript(view)
+                // Fingerprint injection disabled - using normal browser fingerprint
             }
 
             override fun shouldOverrideUrlLoading(
