@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Theme: Rose Pink -->
-    <color name="primary">#C2185B</color>
-    <color name="primary_dark">#880E4F</color>
-    <color name="accent">#FF4081</color>
-    <color name="background">#FCE4EC</color>
-    <color name="toolbar_background">#F8BBD9</color>
-    <color name="url_bar_background">#F48FB1</color>
-    <color name="text_primary">#880E4F</color>
-    <color name="text_hint">#EC407A</color>
-    <color name="icon_tint">#AD1457</color>
-    <color name="progress_color">#F50057</color>
+    <!-- Theme: Pink Dark -->
+    <color name="primary">#EC4899</color>
+    <color name="primary_dark">#DB2777</color>
+    <color name="accent">#F472B6</color>
+    <color name="background">#1C0F18</color>
+    <color name="toolbar_background">#2E1A28</color>
+    <color name="url_bar_background">#44263C</color>
+    <color name="text_primary">#FDF2F8</color>
+    <color name="text_hint">#F9A8D4</color>
+    <color name="icon_tint">#FBCFE8</color>
+    <color name="progress_color">#F472B6</color>
+    <color name="divider">#44263C</color>
 </resources>

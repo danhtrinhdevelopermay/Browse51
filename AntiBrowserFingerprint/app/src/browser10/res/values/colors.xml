@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Theme: Midnight Dark -->
-    <color name="primary">#37474F</color>
-    <color name="primary_dark">#263238</color>
-    <color name="accent">#78909C</color>
-    <color name="background">#ECEFF1</color>
-    <color name="toolbar_background">#CFD8DC</color>
-    <color name="url_bar_background">#B0BEC5</color>
-    <color name="text_primary">#263238</color>
-    <color name="text_hint">#607D8B</color>
-    <color name="icon_tint">#455A64</color>
-    <color name="progress_color">#546E7A</color>
+    <!-- Theme: Slate Dark -->
+    <color name="primary">#64748B</color>
+    <color name="primary_dark">#475569</color>
+    <color name="accent">#94A3B8</color>
+    <color name="background">#0F172A</color>
+    <color name="toolbar_background">#1E293B</color>
+    <color name="url_bar_background">#334155</color>
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_hint">#CBD5E1</color>
+    <color name="icon_tint">#E2E8F0</color>
+    <color name="progress_color">#94A3B8</color>
+    <color name="divider">#334155</color>
 </resources>

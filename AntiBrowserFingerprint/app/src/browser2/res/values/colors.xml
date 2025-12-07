@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Theme: Forest Green -->
-    <color name="primary">#388E3C</color>
-    <color name="primary_dark">#1B5E20</color>
-    <color name="accent">#69F0AE</color>
-    <color name="background">#F1F8E9</color>
-    <color name="toolbar_background">#C8E6C9</color>
-    <color name="url_bar_background">#A5D6A7</color>
-    <color name="text_primary">#1B5E20</color>
-    <color name="text_hint">#81C784</color>
-    <color name="icon_tint">#2E7D32</color>
-    <color name="progress_color">#00E676</color>
+    <!-- Theme: Emerald Dark -->
+    <color name="primary">#10B981</color>
+    <color name="primary_dark">#059669</color>
+    <color name="accent">#34D399</color>
+    <color name="background">#0C1917</color>
+    <color name="toolbar_background">#14292A</color>
+    <color name="url_bar_background">#1F3D3E</color>
+    <color name="text_primary">#ECFDF5</color>
+    <color name="text_hint">#6EE7B7</color>
+    <color name="icon_tint">#A7F3D0</color>
+    <color name="progress_color">#34D399</color>
+    <color name="divider">#1F3D3E</color>
 </resources>
