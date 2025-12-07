@@ -21,16 +21,16 @@ def main():
     print("-" * 60)
     
     browsers = [
-        ("Browser 1", "Pixel 8 Pro", "New York", "en-US"),
-        ("Browser 2", "Galaxy S23", "London", "en-GB"),
-        ("Browser 3", "OnePlus 12", "Tokyo", "ja-JP"),
-        ("Browser 4", "Xiaomi 14 Pro", "Shanghai", "zh-CN"),
-        ("Browser 5", "OPPO Find X7", "Paris", "fr-FR"),
-        ("Browser 6", "Sony Xperia 1 V", "Berlin", "de-DE"),
-        ("Browser 7", "Huawei Mate 60", "Dubai", "ar-AE"),
-        ("Browser 8", "Vivo X100 Pro", "Ho Chi Minh", "vi-VN"),
-        ("Browser 9", "ASUS ROG Phone 8", "Singapore", "en-SG"),
-        ("Browser 10", "Motorola Edge 40", "Sao Paulo", "pt-BR"),
+        ("Hello71", "Hello71", "New York", "en-US"),
+        ("Hello72", "Hello72", "London", "en-GB"),
+        ("Hello73", "Hello73", "Tokyo", "ja-JP"),
+        ("Hello74", "Hello74", "Shanghai", "zh-CN"),
+        ("Hello75", "Hello75", "Paris", "fr-FR"),
+        ("Hello76", "Hello76", "Berlin", "de-DE"),
+        ("Hello77", "Hello77", "Dubai", "ar-AE"),
+        ("Hello78", "Hello78", "Ho Chi Minh", "vi-VN"),
+        ("Hello79", "Hello79", "Singapore", "en-SG"),
+        ("Hello80", "Hello80", "Sao Paulo", "pt-BR"),
     ]
     
     print(f"{'Name':<14} {'Device':<20} {'Location':<14} {'Language'}")
