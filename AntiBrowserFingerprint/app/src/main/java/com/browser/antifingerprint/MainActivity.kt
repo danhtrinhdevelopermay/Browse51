@@ -21,6 +21,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private lateinit var progressBar: ProgressBar
     private lateinit var fingerprintProfile: FingerprintProfile
+    
+    companion object {
+        private const val WEBVIEW_STATE_KEY = "webview_state"
+        private const val CURRENT_URL_KEY = "current_url"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +38,36 @@ class MainActivity : AppCompatActivity() {
         setupUrlBar()
         setupButtons()
 
-        val url = intent?.data?.toString() ?: "https://www.google.com"
-        loadUrl(url)
+        if (savedInstanceState != null) {
+            val webViewBundle = savedInstanceState.getBundle(WEBVIEW_STATE_KEY)
+            if (webViewBundle != null) {
+                webView.restoreState(webViewBundle)
+            } else {
+                val savedUrl = savedInstanceState.getString(CURRENT_URL_KEY)
+                loadUrl(savedUrl ?: intent?.data?.toString() ?: "https://www.google.com")
+            }
+        } else {
+            val url = intent?.data?.toString() ?: "https://www.google.com"
+            loadUrl(url)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val webViewBundle = Bundle()
+        webView.saveState(webViewBundle)
+        outState.putBundle(WEBVIEW_STATE_KEY, webViewBundle)
+        outState.putString(CURRENT_URL_KEY, webView.url)
+        
+        CookieManager.getInstance().flush()
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val webViewBundle = savedInstanceState.getBundle(WEBVIEW_STATE_KEY)
+        if (webViewBundle != null) {
+            webView.restoreState(webViewBundle)
+        }
     }
 
     private fun createFingerprintProfile(): FingerprintProfile {
@@ -88,6 +121,7 @@ class MainActivity : AppCompatActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 progressBar.visibility = View.GONE
+                CookieManager.getInstance().flush()
             }
 
             override fun shouldOverrideUrlLoading(
@@ -135,6 +169,7 @@ class MainActivity : AppCompatActivity() {
                     settings.javaScriptCanOpenWindowsAutomatically = true
                     settings.setSupportMultipleWindows(true)
                     settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+                    settings.userAgentString = fingerprintProfile.userAgent
                     
                     webViewClient = object : WebViewClient() {
                         override fun shouldOverrideUrlLoading(
@@ -143,7 +178,13 @@ class MainActivity : AppCompatActivity() {
                         ): Boolean {
                             val url = request?.url?.toString() ?: return false
                             this@MainActivity.webView.loadUrl(url)
+                            CookieManager.getInstance().flush()
                             return true
+                        }
+                        
+                        override fun onPageFinished(view: WebView?, url: String?) {
+                            super.onPageFinished(view, url)
+                            CookieManager.getInstance().flush()
                         }
                     }
                 }
@@ -161,6 +202,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onCloseWindow(window: WebView?) {
                 super.onCloseWindow(window)
+                CookieManager.getInstance().flush()
             }
         }
 
@@ -214,6 +256,15 @@ class MainActivity : AppCompatActivity() {
         webView.loadUrl(url)
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        val url = intent?.data?.toString()
+        if (url != null && (url.startsWith("http://") || url.startsWith("https://"))) {
+            loadUrl(url)
+        }
+    }
+
     override fun onBackPressed() {
         if (webView.canGoBack()) {
             webView.goBack()
@@ -229,10 +280,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         webView.onPause()
+        CookieManager.getInstance().flush()
         super.onPause()
     }
 
     override fun onDestroy() {
+        CookieManager.getInstance().flush()
         webView.destroy()
         super.onDestroy()
     }
