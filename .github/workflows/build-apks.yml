@@ -7,6 +7,10 @@ on:
     branches: [ main, master ]
   workflow_dispatch:
 
+defaults:
+  run:
+    working-directory: AntiBrowserFingerprint
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -55,14 +59,13 @@ jobs:
     - name: Find and rename APK
       run: |
         mkdir -p output
-        FLAVOR_LOWER=$(echo "${{ matrix.flavor }}" | tr '[:upper:]' '[:lower:]')
         find app/build/outputs/apk -name "*.apk" -type f | head -1 | xargs -I {} cp {} output/SecureBrowser-${{ matrix.flavor }}.apk
 
     - name: Upload ${{ matrix.flavor }} APK
       uses: actions/upload-artifact@v4
       with:
         name: SecureBrowser-${{ matrix.flavor }}
-        path: output/SecureBrowser-${{ matrix.flavor }}.apk
+        path: AntiBrowserFingerprint/output/SecureBrowser-${{ matrix.flavor }}.apk
         retention-days: 30
 
   bundle-all:
@@ -80,6 +83,7 @@ jobs:
       run: |
         cd all-apks
         zip -r ../SecureBrowser-All-10-APKs.zip *.apk
+      working-directory: .
 
     - name: Upload combined archive
       uses: actions/upload-artifact@v4
