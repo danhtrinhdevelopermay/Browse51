@@ -45,17 +45,17 @@ android {
     productFlavors {
         create("browser1") {
             dimension = "browser"
-            applicationIdSuffix = ".l9vx"
-            versionNameSuffix = "-L9VX"
-            resValue("string", "app_name", "Browser L9VX")
-            buildConfigField("String", "PROFILE_ID", "\"profile_l9vx_1\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; XQ-DE72) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.116 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Europe/Madrid\"")
-            buildConfigField("String", "LANGUAGE", "\"en-AU\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1080")
-            buildConfigField("int", "SCREEN_HEIGHT", "2520")
+            applicationIdSuffix = ".gyco"
+            versionNameSuffix = "-GYCO"
+            resValue("string", "app_name", "Browser GYCO")
+            buildConfigField("String", "PROFILE_ID", "\"profile_gyco_1\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; CPH2449) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.118 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Asia/Taipei\"")
+            buildConfigField("String", "LANGUAGE", "\"ko-KR\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1456")
+            buildConfigField("int", "SCREEN_HEIGHT", "3212")
             buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "12")
+            buildConfigField("int", "DEVICE_MEMORY", "24")
             buildConfigField("int", "HARDWARE_CONCURRENCY", "4")
             buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
             buildConfigField("String", "VENDOR", "\"Google Inc.\"")
@@ -64,17 +64,17 @@ android {
 
         create("browser2") {
             dimension = "browser"
-            applicationIdSuffix = ".5h2v"
-            versionNameSuffix = "-5H2V"
-            resValue("string", "app_name", "Browser 5H2V")
-            buildConfigField("String", "PROFILE_ID", "\"profile_5h2v_2\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; CPH2551) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.119 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"America/Chicago\"")
-            buildConfigField("String", "LANGUAGE", "\"ru-RU\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1440")
-            buildConfigField("int", "SCREEN_HEIGHT", "3168")
+            applicationIdSuffix = ".eoyb"
+            versionNameSuffix = "-EOYB"
+            resValue("string", "app_name", "Browser EOYB")
+            buildConfigField("String", "PROFILE_ID", "\"profile_eoyb_2\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; SM-S928B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.116 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Asia/Kuala_Lumpur\"")
+            buildConfigField("String", "LANGUAGE", "\"fr-FR\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1456")
+            buildConfigField("int", "SCREEN_HEIGHT", "3132")
             buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "6")
+            buildConfigField("int", "DEVICE_MEMORY", "16")
             buildConfigField("int", "HARDWARE_CONCURRENCY", "8")
             buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
             buildConfigField("String", "VENDOR", "\"Google Inc.\"")
@@ -83,129 +83,110 @@ android {
 
         create("browser3") {
             dimension = "browser"
-            applicationIdSuffix = ".fsua"
-            versionNameSuffix = "-FSUA"
-            resValue("string", "app_name", "Browser FSUA")
-            buildConfigField("String", "PROFILE_ID", "\"profile_fsua_3\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; moto g84 5G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.105 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Asia/Singapore\"")
-            buildConfigField("String", "LANGUAGE", "\"ms-MY\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1080")
-            buildConfigField("int", "SCREEN_HEIGHT", "2400")
-            buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "24")
-            buildConfigField("int", "HARDWARE_CONCURRENCY", "6")
-            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
-            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Adreno (TM) 619\"")
-        }
-
-        create("browser4") {
-            dimension = "browser"
-            applicationIdSuffix = ".sz4c"
-            versionNameSuffix = "-SZ4C"
-            resValue("string", "app_name", "Browser SZ4C")
-            buildConfigField("String", "PROFILE_ID", "\"profile_sz4c_4\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; LE2121) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.116 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Asia/Kolkata\"")
-            buildConfigField("String", "LANGUAGE", "\"tr-TR\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1440")
-            buildConfigField("int", "SCREEN_HEIGHT", "3216")
-            buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "6")
-            buildConfigField("int", "HARDWARE_CONCURRENCY", "6")
-            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
-            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Adreno (TM) 660\"")
-        }
-
-        create("browser5") {
-            dimension = "browser"
-            applicationIdSuffix = ".cl4t"
-            versionNameSuffix = "-CL4T"
-            resValue("string", "app_name", "Browser CL4T")
-            buildConfigField("String", "PROFILE_ID", "\"profile_cl4t_5\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; SM-S928B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.105 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Asia/Bangkok\"")
-            buildConfigField("String", "LANGUAGE", "\"vi-VN\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1440")
-            buildConfigField("int", "SCREEN_HEIGHT", "3120")
-            buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "24")
-            buildConfigField("int", "HARDWARE_CONCURRENCY", "8")
-            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
-            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Adreno (TM) 750\"")
-        }
-
-        create("browser6") {
-            dimension = "browser"
-            applicationIdSuffix = ".l2ny"
-            versionNameSuffix = "-L2NY"
-            resValue("string", "app_name", "Browser L2NY")
-            buildConfigField("String", "PROFILE_ID", "\"profile_l2ny_6\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; ASUS_AI2401_A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.6167.85 Mobile Safari/537.36\"")
+            applicationIdSuffix = ".6wrb"
+            versionNameSuffix = "-6WRB"
+            resValue("string", "app_name", "Browser 6WRB")
+            buildConfigField("String", "PROFILE_ID", "\"profile_6wrb_3\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.6045.134 Mobile Safari/537.36\"")
             buildConfigField("String", "TIMEZONE", "\"Australia/Sydney\"")
-            buildConfigField("String", "LANGUAGE", "\"sv-SE\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1080")
-            buildConfigField("int", "SCREEN_HEIGHT", "2400")
-            buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "16")
-            buildConfigField("int", "HARDWARE_CONCURRENCY", "8")
-            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
-            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Adreno (TM) 750\"")
-        }
-
-        create("browser7") {
-            dimension = "browser"
-            applicationIdSuffix = ".6z1j"
-            versionNameSuffix = "-6Z1J"
-            resValue("string", "app_name", "Browser 6Z1J")
-            buildConfigField("String", "PROFILE_ID", "\"profile_6z1j_7\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.80 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Europe/Amsterdam\"")
-            buildConfigField("String", "LANGUAGE", "\"ar-AE\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1440")
-            buildConfigField("int", "SCREEN_HEIGHT", "3088")
-            buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "6")
-            buildConfigField("int", "HARDWARE_CONCURRENCY", "6")
-            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
-            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Adreno (TM) 740\"")
-        }
-
-        create("browser8") {
-            dimension = "browser"
-            applicationIdSuffix = ".p8sa"
-            versionNameSuffix = "-P8SA"
-            resValue("string", "app_name", "Browser P8SA")
-            buildConfigField("String", "PROFILE_ID", "\"profile_p8sa_8\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; 2201116SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.210 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Asia/Manila\"")
-            buildConfigField("String", "LANGUAGE", "\"en-AU\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1440")
-            buildConfigField("int", "SCREEN_HEIGHT", "3200")
+            buildConfigField("String", "LANGUAGE", "\"zh-TW\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1436")
+            buildConfigField("int", "SCREEN_HEIGHT", "3112")
             buildConfigField("int", "COLOR_DEPTH", "24")
             buildConfigField("int", "DEVICE_MEMORY", "12")
             buildConfigField("int", "HARDWARE_CONCURRENCY", "6")
             buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
             buildConfigField("String", "VENDOR", "\"Google Inc.\"")
+            buildConfigField("String", "RENDERER", "\"Adreno (TM) 750\"")
+        }
+
+        create("browser4") {
+            dimension = "browser"
+            applicationIdSuffix = ".9uvc"
+            versionNameSuffix = "-9UVC"
+            resValue("string", "app_name", "Browser 9UVC")
+            buildConfigField("String", "PROFILE_ID", "\"profile_9uvc_4\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; Pixel 7 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6613.84 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"America/Los_Angeles\"")
+            buildConfigField("String", "LANGUAGE", "\"en-US\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1452")
+            buildConfigField("int", "SCREEN_HEIGHT", "3132")
+            buildConfigField("int", "COLOR_DEPTH", "24")
+            buildConfigField("int", "DEVICE_MEMORY", "4")
+            buildConfigField("int", "HARDWARE_CONCURRENCY", "6")
+            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
+            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
+            buildConfigField("String", "RENDERER", "\"Mali-G710 MC10\"")
+        }
+
+        create("browser5") {
+            dimension = "browser"
+            applicationIdSuffix = ".vta2"
+            versionNameSuffix = "-VTA2"
+            resValue("string", "app_name", "Browser VTA2")
+            buildConfigField("String", "PROFILE_ID", "\"profile_vta2_5\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.82 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Asia/Manila\"")
+            buildConfigField("String", "LANGUAGE", "\"ms-MY\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1324")
+            buildConfigField("int", "SCREEN_HEIGHT", "2976")
+            buildConfigField("int", "COLOR_DEPTH", "24")
+            buildConfigField("int", "DEVICE_MEMORY", "8")
+            buildConfigField("int", "HARDWARE_CONCURRENCY", "4")
+            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
+            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
+            buildConfigField("String", "RENDERER", "\"Mali-G715 Immortalis MC11\"")
+        }
+
+        create("browser6") {
+            dimension = "browser"
+            applicationIdSuffix = ".9yff"
+            versionNameSuffix = "-9YFF"
+            resValue("string", "app_name", "Browser 9YFF")
+            buildConfigField("String", "PROFILE_ID", "\"profile_9yff_6\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; 2201116SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.6778.108 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Asia/Seoul\"")
+            buildConfigField("String", "LANGUAGE", "\"ru-RU\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1444")
+            buildConfigField("int", "SCREEN_HEIGHT", "3204")
+            buildConfigField("int", "COLOR_DEPTH", "24")
+            buildConfigField("int", "DEVICE_MEMORY", "12")
+            buildConfigField("int", "HARDWARE_CONCURRENCY", "4")
+            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
+            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
             buildConfigField("String", "RENDERER", "\"Adreno (TM) 730\"")
         }
 
-        create("browser9") {
+        create("browser7") {
             dimension = "browser"
-            applicationIdSuffix = ".0z1z"
-            versionNameSuffix = "-0Z1Z"
-            resValue("string", "app_name", "Browser 0Z1Z")
-            buildConfigField("String", "PROFILE_ID", "\"profile_0z1z_9\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; V2309) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.119 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Asia/Seoul\"")
-            buildConfigField("String", "LANGUAGE", "\"id-ID\"")
-            buildConfigField("int", "SCREEN_WIDTH", "2200")
-            buildConfigField("int", "SCREEN_HEIGHT", "2480")
+            applicationIdSuffix = ".1znf"
+            versionNameSuffix = "-1ZNF"
+            resValue("string", "app_name", "Browser 1ZNF")
+            buildConfigField("String", "PROFILE_ID", "\"profile_1znf_7\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; V2254A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.116 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"America/New_York\"")
+            buildConfigField("String", "LANGUAGE", "\"pl-PL\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1248")
+            buildConfigField("int", "SCREEN_HEIGHT", "2788")
+            buildConfigField("int", "COLOR_DEPTH", "24")
+            buildConfigField("int", "DEVICE_MEMORY", "8")
+            buildConfigField("int", "HARDWARE_CONCURRENCY", "8")
+            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
+            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
+            buildConfigField("String", "RENDERER", "\"Mali-G720 Immortalis MC12\"")
+        }
+
+        create("browser8") {
+            dimension = "browser"
+            applicationIdSuffix = ".wcdx"
+            versionNameSuffix = "-WCDX"
+            resValue("string", "app_name", "Browser WCDX")
+            buildConfigField("String", "PROFILE_ID", "\"profile_wcdx_8\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; CPH2581) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.72 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Europe/Moscow\"")
+            buildConfigField("String", "LANGUAGE", "\"nl-NL\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1456")
+            buildConfigField("int", "SCREEN_HEIGHT", "3172")
             buildConfigField("int", "COLOR_DEPTH", "24")
             buildConfigField("int", "DEVICE_MEMORY", "6")
             buildConfigField("int", "HARDWARE_CONCURRENCY", "4")
@@ -214,115 +195,134 @@ android {
             buildConfigField("String", "RENDERER", "\"Adreno (TM) 750\"")
         }
 
+        create("browser9") {
+            dimension = "browser"
+            applicationIdSuffix = ".0hwh"
+            versionNameSuffix = "-0HWH"
+            resValue("string", "app_name", "Browser 0HWH")
+            buildConfigField("String", "PROFILE_ID", "\"profile_0hwh_9\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; 23127PN0CC) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.6778.69 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Europe/Rome\"")
+            buildConfigField("String", "LANGUAGE", "\"pt-BR\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1188")
+            buildConfigField("int", "SCREEN_HEIGHT", "2688")
+            buildConfigField("int", "COLOR_DEPTH", "24")
+            buildConfigField("int", "DEVICE_MEMORY", "8")
+            buildConfigField("int", "HARDWARE_CONCURRENCY", "8")
+            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
+            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
+            buildConfigField("String", "RENDERER", "\"Adreno (TM) 750\"")
+        }
+
         create("browser10") {
             dimension = "browser"
-            applicationIdSuffix = ".qsks"
-            versionNameSuffix = "-QSKS"
-            resValue("string", "app_name", "Browser QSKS")
-            buildConfigField("String", "PROFILE_ID", "\"profile_qsks_10\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; XQ-DE72) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.116 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Asia/Tokyo\"")
-            buildConfigField("String", "LANGUAGE", "\"fr-FR\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1080")
-            buildConfigField("int", "SCREEN_HEIGHT", "2520")
+            applicationIdSuffix = ".98y5"
+            versionNameSuffix = "-98Y5"
+            resValue("string", "app_name", "Browser 98Y5")
+            buildConfigField("String", "PROFILE_ID", "\"profile_98y5_10\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; RMX3700) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.154 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"America/Denver\"")
+            buildConfigField("String", "LANGUAGE", "\"pt-PT\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1244")
+            buildConfigField("int", "SCREEN_HEIGHT", "2764")
+            buildConfigField("int", "COLOR_DEPTH", "24")
+            buildConfigField("int", "DEVICE_MEMORY", "16")
+            buildConfigField("int", "HARDWARE_CONCURRENCY", "8")
+            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
+            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
+            buildConfigField("String", "RENDERER", "\"Adreno (TM) 750\"")
+        }
+
+        create("browser11") {
+            dimension = "browser"
+            applicationIdSuffix = ".kwjb"
+            versionNameSuffix = "-KWJB"
+            resValue("string", "app_name", "Browser KWJB")
+            buildConfigField("String", "PROFILE_ID", "\"profile_kwjb_11\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; ASUS_AI2203) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.6778.69 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Asia/Singapore\"")
+            buildConfigField("String", "LANGUAGE", "\"ar-AE\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1064")
+            buildConfigField("int", "SCREEN_HEIGHT", "2392")
+            buildConfigField("int", "COLOR_DEPTH", "24")
+            buildConfigField("int", "DEVICE_MEMORY", "4")
+            buildConfigField("int", "HARDWARE_CONCURRENCY", "8")
+            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
+            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
+            buildConfigField("String", "RENDERER", "\"Adreno (TM) 740\"")
+        }
+
+        create("browser12") {
+            dimension = "browser"
+            applicationIdSuffix = ".brij"
+            versionNameSuffix = "-BRIJ"
+            resValue("string", "app_name", "Browser BRIJ")
+            buildConfigField("String", "PROFILE_ID", "\"profile_brij_12\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; ASUS_AI2203) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6613.84 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"America/Toronto\"")
+            buildConfigField("String", "LANGUAGE", "\"zh-TW\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1060")
+            buildConfigField("int", "SCREEN_HEIGHT", "2404")
+            buildConfigField("int", "COLOR_DEPTH", "24")
+            buildConfigField("int", "DEVICE_MEMORY", "8")
+            buildConfigField("int", "HARDWARE_CONCURRENCY", "4")
+            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
+            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
+            buildConfigField("String", "RENDERER", "\"Adreno (TM) 740\"")
+        }
+
+        create("browser13") {
+            dimension = "browser"
+            applicationIdSuffix = ".mpz4"
+            versionNameSuffix = "-MPZ4"
+            resValue("string", "app_name", "Browser MPZ4")
+            buildConfigField("String", "PROFILE_ID", "\"profile_mpz4_13\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; 2304FPN6DC) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Europe/Amsterdam\"")
+            buildConfigField("String", "LANGUAGE", "\"it-IT\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1432")
+            buildConfigField("int", "SCREEN_HEIGHT", "3196")
             buildConfigField("int", "COLOR_DEPTH", "24")
             buildConfigField("int", "DEVICE_MEMORY", "16")
             buildConfigField("int", "HARDWARE_CONCURRENCY", "6")
             buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
             buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Adreno (TM) 740\"")
-        }
-
-        create("browser11") {
-            dimension = "browser"
-            applicationIdSuffix = ".3zoh"
-            versionNameSuffix = "-3ZOH"
-            resValue("string", "app_name", "Browser 3ZOH")
-            buildConfigField("String", "PROFILE_ID", "\"profile_3zoh_11\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; LE2121) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.144 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Asia/Ho_Chi_Minh\"")
-            buildConfigField("String", "LANGUAGE", "\"vi-VN\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1440")
-            buildConfigField("int", "SCREEN_HEIGHT", "3216")
-            buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "8")
-            buildConfigField("int", "HARDWARE_CONCURRENCY", "6")
-            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
-            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Adreno (TM) 660\"")
-        }
-
-        create("browser12") {
-            dimension = "browser"
-            applicationIdSuffix = ".dcly"
-            versionNameSuffix = "-DCLY"
-            resValue("string", "app_name", "Browser DCLY")
-            buildConfigField("String", "PROFILE_ID", "\"profile_dcly_12\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; SM-A546B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.116 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"America/Mexico_City\"")
-            buildConfigField("String", "LANGUAGE", "\"sv-SE\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1080")
-            buildConfigField("int", "SCREEN_HEIGHT", "2340")
-            buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "4")
-            buildConfigField("int", "HARDWARE_CONCURRENCY", "6")
-            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
-            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Mali-G68 MC4\"")
-        }
-
-        create("browser13") {
-            dimension = "browser"
-            applicationIdSuffix = ".1jpn"
-            versionNameSuffix = "-1JPN"
-            resValue("string", "app_name", "Browser 1JPN")
-            buildConfigField("String", "PROFILE_ID", "\"profile_1jpn_13\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; LE2121) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.82 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"America/Vancouver\"")
-            buildConfigField("String", "LANGUAGE", "\"id-ID\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1440")
-            buildConfigField("int", "SCREEN_HEIGHT", "3216")
-            buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "24")
-            buildConfigField("int", "HARDWARE_CONCURRENCY", "6")
-            buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
-            buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Adreno (TM) 660\"")
+            buildConfigField("String", "RENDERER", "\"Adreno (TM) 750\"")
         }
 
         create("browser14") {
             dimension = "browser"
-            applicationIdSuffix = ".ywht"
-            versionNameSuffix = "-YWHT"
-            resValue("string", "app_name", "Browser YWHT")
-            buildConfigField("String", "PROFILE_ID", "\"profile_ywht_14\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; RMX3661) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.118 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"America/Mexico_City\"")
-            buildConfigField("String", "LANGUAGE", "\"fr-FR\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1240")
-            buildConfigField("int", "SCREEN_HEIGHT", "2772")
+            applicationIdSuffix = ".c2qz"
+            versionNameSuffix = "-C2QZ"
+            resValue("string", "app_name", "Browser C2QZ")
+            buildConfigField("String", "PROFILE_ID", "\"profile_c2qz_14\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; LE2121) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.113 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Pacific/Auckland\"")
+            buildConfigField("String", "LANGUAGE", "\"tr-TR\"")
+            buildConfigField("int", "SCREEN_WIDTH", "1424")
+            buildConfigField("int", "SCREEN_HEIGHT", "3232")
             buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "12")
+            buildConfigField("int", "DEVICE_MEMORY", "16")
             buildConfigField("int", "HARDWARE_CONCURRENCY", "8")
             buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
             buildConfigField("String", "VENDOR", "\"Google Inc.\"")
-            buildConfigField("String", "RENDERER", "\"Adreno (TM) 740\"")
+            buildConfigField("String", "RENDERER", "\"Adreno (TM) 660\"")
         }
 
         create("browser15") {
             dimension = "browser"
-            applicationIdSuffix = ".d1kd"
-            versionNameSuffix = "-D1KD"
-            resValue("string", "app_name", "Browser D1KD")
-            buildConfigField("String", "PROFILE_ID", "\"profile_d1kd_15\"")
-            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 14; 2304FPN6DC) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.99 Mobile Safari/537.36\"")
-            buildConfigField("String", "TIMEZONE", "\"Asia/Taipei\"")
-            buildConfigField("String", "LANGUAGE", "\"fr-FR\"")
-            buildConfigField("int", "SCREEN_WIDTH", "1440")
-            buildConfigField("int", "SCREEN_HEIGHT", "3200")
+            applicationIdSuffix = ".5fel"
+            versionNameSuffix = "-5FEL"
+            resValue("string", "app_name", "Browser 5FEL")
+            buildConfigField("String", "PROFILE_ID", "\"profile_5fel_15\"")
+            buildConfigField("String", "USER_AGENT", "\"Mozilla/5.0 (Linux; Android 13; V2309) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36\"")
+            buildConfigField("String", "TIMEZONE", "\"Asia/Kuala_Lumpur\"")
+            buildConfigField("String", "LANGUAGE", "\"ms-MY\"")
+            buildConfigField("int", "SCREEN_WIDTH", "2180")
+            buildConfigField("int", "SCREEN_HEIGHT", "2464")
             buildConfigField("int", "COLOR_DEPTH", "24")
-            buildConfigField("int", "DEVICE_MEMORY", "6")
-            buildConfigField("int", "HARDWARE_CONCURRENCY", "8")
+            buildConfigField("int", "DEVICE_MEMORY", "4")
+            buildConfigField("int", "HARDWARE_CONCURRENCY", "4")
             buildConfigField("String", "PLATFORM", "\"Linux armv81\"")
             buildConfigField("String", "VENDOR", "\"Google Inc.\"")
             buildConfigField("String", "RENDERER", "\"Adreno (TM) 750\"")

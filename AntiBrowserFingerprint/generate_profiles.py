@@ -61,12 +61,40 @@ LANGUAGES = [
 ]
 
 CHROME_VERSIONS = [
-    "120.0.6099.230", "120.0.6099.210", "120.0.6099.144", "120.0.6099.116",
-    "121.0.6167.143", "121.0.6167.101", "121.0.6167.85",
-    "122.0.6261.119", "122.0.6261.105", "122.0.6261.90",
-    "123.0.6312.118", "123.0.6312.99", "123.0.6312.80",
-    "124.0.6367.113", "124.0.6367.82", "124.0.6367.60",
-    "125.0.6422.165", "125.0.6422.113", "125.0.6422.72",
+    # Chrome 115
+    "115.0.5790.166", "115.0.5790.138", "115.0.5790.110",
+    # Chrome 116
+    "116.0.5845.163", "116.0.5845.114", "116.0.5845.96",
+    # Chrome 117
+    "117.0.5938.154", "117.0.5938.140", "117.0.5938.117", "117.0.5938.92",
+    # Chrome 118
+    "118.0.5993.111", "118.0.5993.80", "118.0.5993.65",
+    # Chrome 119
+    "119.0.6045.193", "119.0.6045.169", "119.0.6045.134", "119.0.6045.109",
+    # Chrome 120
+    "120.0.6099.230", "120.0.6099.210", "120.0.6099.193", "120.0.6099.144", "120.0.6099.116", "120.0.6099.85",
+    # Chrome 121
+    "121.0.6167.178", "121.0.6167.164", "121.0.6167.143", "121.0.6167.101", "121.0.6167.85", "121.0.6167.57",
+    # Chrome 122
+    "122.0.6261.128", "122.0.6261.119", "122.0.6261.105", "122.0.6261.90", "122.0.6261.64", "122.0.6261.43",
+    # Chrome 123
+    "123.0.6312.118", "123.0.6312.99", "123.0.6312.80", "123.0.6312.58", "123.0.6312.40",
+    # Chrome 124
+    "124.0.6367.179", "124.0.6367.155", "124.0.6367.113", "124.0.6367.82", "124.0.6367.60",
+    # Chrome 125
+    "125.0.6422.165", "125.0.6422.144", "125.0.6422.113", "125.0.6422.72", "125.0.6422.53",
+    # Chrome 126
+    "126.0.6478.122", "126.0.6478.110", "126.0.6478.72", "126.0.6478.50",
+    # Chrome 127
+    "127.0.6533.103", "127.0.6533.88", "127.0.6533.72", "127.0.6533.57",
+    # Chrome 128
+    "128.0.6613.127", "128.0.6613.114", "128.0.6613.84", "128.0.6613.66",
+    # Chrome 129
+    "129.0.6668.100", "129.0.6668.89", "129.0.6668.70", "129.0.6668.54",
+    # Chrome 130
+    "130.0.6723.116", "130.0.6723.102", "130.0.6723.69", "130.0.6723.40",
+    # Chrome 131
+    "131.0.6778.135", "131.0.6778.108", "131.0.6778.81", "131.0.6778.69",
 ]
 
 ANDROID_VERSIONS = [13, 14]
@@ -78,8 +106,21 @@ def generate_random_suffix(length=4):
     chars = string.ascii_lowercase + string.digits
     return ''.join(random.choice(chars) for _ in range(length))
 
-def generate_profile(index, used_combos):
-    while True:
+def add_screen_noise(width, height, noise_range=20):
+    """Add random noise to screen dimensions (±noise_range pixels)"""
+    width_noise = random.randint(-noise_range, noise_range)
+    height_noise = random.randint(-noise_range, noise_range)
+    # Keep values divisible by 4 for realistic screen dimensions
+    new_width = ((width + width_noise) // 4) * 4
+    new_height = ((height + height_noise) // 4) * 4
+    return new_width, new_height
+
+def generate_profile(index, used_combos, used_user_agents):
+    max_attempts = 100
+    attempts = 0
+    
+    while attempts < max_attempts:
+        attempts += 1
         device = random.choice(DEVICES)
         timezone = random.choice(TIMEZONES)
         language = random.choice(LANGUAGES)[0]
@@ -88,15 +129,24 @@ def generate_profile(index, used_combos):
         memory = random.choice(MEMORY_OPTIONS)
         cores = random.choice(CORE_OPTIONS)
         
-        combo_hash = hashlib.md5(f"{device['model']}-{timezone}-{language}".encode()).hexdigest()[:8]
+        # Add noise to screen dimensions
+        screen_width, screen_height = add_screen_noise(device["width"], device["height"])
         
-        if combo_hash not in used_combos:
+        # Create user agent
+        user_agent = f"Mozilla/5.0 (Linux; Android {android_version}; {device['model']}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_version} Mobile Safari/537.36"
+        
+        # Check for unique combination (device + timezone + language + screen + memory + cores)
+        combo_hash = hashlib.md5(
+            f"{device['model']}-{timezone}-{language}-{screen_width}x{screen_height}-{memory}-{cores}".encode()
+        ).hexdigest()[:12]
+        
+        # Also ensure user agent is unique
+        if combo_hash not in used_combos and user_agent not in used_user_agents:
             used_combos.add(combo_hash)
+            used_user_agents.add(user_agent)
             break
     
     suffix = generate_random_suffix()
-    
-    user_agent = f"Mozilla/5.0 (Linux; Android {android_version}; {device['model']}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_version} Mobile Safari/537.36"
     
     return {
         "index": index,
@@ -106,8 +156,8 @@ def generate_profile(index, used_combos):
         "user_agent": user_agent,
         "timezone": timezone,
         "language": language,
-        "screen_width": device["width"],
-        "screen_height": device["height"],
+        "screen_width": screen_width,
+        "screen_height": screen_height,
         "color_depth": 24,
         "device_memory": memory,
         "hardware_concurrency": cores,
@@ -115,6 +165,7 @@ def generate_profile(index, used_combos):
         "vendor": "Google Inc.",
         "renderer": device["renderer"],
         "device_name": device["name"],
+        "chrome_version": chrome_version,
     }
 
 def generate_flavor_code(profile):
@@ -225,10 +276,11 @@ def main():
     args = parser.parse_args()
     
     used_combos = set()
+    used_user_agents = set()
     profiles = []
     
     for i in range(1, args.num + 1):
-        profile = generate_profile(i, used_combos)
+        profile = generate_profile(i, used_combos, used_user_agents)
         profiles.append(profile)
     
     gradle_content = generate_build_gradle(profiles, args.num)
