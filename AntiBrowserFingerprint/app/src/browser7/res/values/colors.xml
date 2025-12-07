@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme: Deep Indigo -->
+    <color name="primary">#303F9F</color>
+    <color name="primary_dark">#1A237E</color>
+    <color name="accent">#536DFE</color>
+    <color name="background">#E8EAF6</color>
+    <color name="toolbar_background">#C5CAE9</color>
+    <color name="url_bar_background">#9FA8DA</color>
+    <color name="text_primary">#1A237E</color>
+    <color name="text_hint">#7986CB</color>
+    <color name="icon_tint">#283593</color>
+    <color name="progress_color">#3D5AFE</color>
+</resources>

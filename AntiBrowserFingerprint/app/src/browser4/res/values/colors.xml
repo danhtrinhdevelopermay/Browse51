@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme: Sunset Orange -->
+    <color name="primary">#F57C00</color>
+    <color name="primary_dark">#E65100</color>
+    <color name="accent">#FFAB40</color>
+    <color name="background">#FFF3E0</color>
+    <color name="toolbar_background">#FFE0B2</color>
+    <color name="url_bar_background">#FFCC80</color>
+    <color name="text_primary">#E65100</color>
+    <color name="text_hint">#FFB74D</color>
+    <color name="icon_tint">#EF6C00</color>
+    <color name="progress_color">#FF9100</color>
+</resources>

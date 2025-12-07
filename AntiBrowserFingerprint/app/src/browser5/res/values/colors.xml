@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme: Cherry Red -->
+    <color name="primary">#D32F2F</color>
+    <color name="primary_dark">#B71C1C</color>
+    <color name="accent">#FF5252</color>
+    <color name="background">#FFEBEE</color>
+    <color name="toolbar_background">#FFCDD2</color>
+    <color name="url_bar_background">#EF9A9A</color>
+    <color name="text_primary">#B71C1C</color>
+    <color name="text_hint">#E57373</color>
+    <color name="icon_tint">#C62828</color>
+    <color name="progress_color">#FF1744</color>
+</resources>
