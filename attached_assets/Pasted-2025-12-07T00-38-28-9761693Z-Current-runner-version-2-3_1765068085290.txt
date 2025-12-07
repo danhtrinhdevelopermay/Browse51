@@ -1,0 +1,322 @@
+2025-12-07T00:38:28.9761693Z Current runner version: '2.329.0'
+2025-12-07T00:38:28.9785263Z ##[group]Runner Image Provisioner
+2025-12-07T00:38:28.9786087Z Hosted Compute Agent
+2025-12-07T00:38:28.9786609Z Version: 20251124.448
+2025-12-07T00:38:28.9787296Z Commit: fda5086b43ec66ade217e5fcd18146c879571177
+2025-12-07T00:38:28.9788167Z Build Date: 2025-11-24T21:16:26Z
+2025-12-07T00:38:28.9788782Z ##[endgroup]
+2025-12-07T00:38:28.9789366Z ##[group]Operating System
+2025-12-07T00:38:28.9789971Z Ubuntu
+2025-12-07T00:38:28.9790428Z 24.04.3
+2025-12-07T00:38:28.9790945Z LTS
+2025-12-07T00:38:28.9791395Z ##[endgroup]
+2025-12-07T00:38:28.9791900Z ##[group]Runner Image
+2025-12-07T00:38:28.9792583Z Image: ubuntu-24.04
+2025-12-07T00:38:28.9793074Z Version: 20251126.144.1
+2025-12-07T00:38:28.9794092Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251126.144/images/ubuntu/Ubuntu2404-Readme.md
+2025-12-07T00:38:28.9795629Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251126.144
+2025-12-07T00:38:28.9796584Z ##[endgroup]
+2025-12-07T00:38:28.9797706Z ##[group]GITHUB_TOKEN Permissions
+2025-12-07T00:38:28.9799904Z Contents: read
+2025-12-07T00:38:28.9800457Z Metadata: read
+2025-12-07T00:38:28.9801035Z Packages: read
+2025-12-07T00:38:28.9801540Z ##[endgroup]
+2025-12-07T00:38:28.9803490Z Secret source: Actions
+2025-12-07T00:38:28.9804289Z Prepare workflow directory
+2025-12-07T00:38:29.0189378Z Prepare all required actions
+2025-12-07T00:38:29.0232894Z Getting action download info
+2025-12-07T00:38:29.5127995Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-12-07T00:38:30.1033326Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+2025-12-07T00:38:30.7064225Z Download action repository 'gradle/actions@v3' (SHA:d9c87d481d55275bb5441eef3fe0e46805f9ef70)
+2025-12-07T00:38:31.6483712Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2025-12-07T00:38:31.8545878Z Complete job name: build (Browser4)
+2025-12-07T00:38:31.9157530Z ##[group]Run actions/checkout@v4
+2025-12-07T00:38:31.9158685Z with:
+2025-12-07T00:38:31.9159093Z   repository: danhtrinhdevelopermay/Browse51
+2025-12-07T00:38:31.9159699Z   token: ***
+2025-12-07T00:38:31.9160095Z   ssh-strict: true
+2025-12-07T00:38:31.9160474Z   ssh-user: git
+2025-12-07T00:38:31.9160786Z   persist-credentials: true
+2025-12-07T00:38:31.9161215Z   clean: true
+2025-12-07T00:38:31.9161526Z   sparse-checkout-cone-mode: true
+2025-12-07T00:38:31.9161916Z   fetch-depth: 1
+2025-12-07T00:38:31.9162262Z   fetch-tags: false
+2025-12-07T00:38:31.9162662Z   show-progress: true
+2025-12-07T00:38:31.9162984Z   lfs: false
+2025-12-07T00:38:31.9163345Z   submodules: false
+2025-12-07T00:38:31.9163718Z   set-safe-directory: true
+2025-12-07T00:38:31.9164317Z ##[endgroup]
+2025-12-07T00:38:32.0289749Z Syncing repository: danhtrinhdevelopermay/Browse51
+2025-12-07T00:38:32.0292943Z ##[group]Getting Git version info
+2025-12-07T00:38:32.0294171Z Working directory is '/home/runner/work/Browse51/Browse51'
+2025-12-07T00:38:32.0295665Z [command]/usr/bin/git version
+2025-12-07T00:38:32.0392718Z git version 2.52.0
+2025-12-07T00:38:32.0421246Z ##[endgroup]
+2025-12-07T00:38:32.0435606Z Temporarily overriding HOME='/home/runner/work/_temp/30424a7c-661b-4de3-9fcc-fe553dd157d6' before making global git config changes
+2025-12-07T00:38:32.0438450Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-07T00:38:32.0452403Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Browse51/Browse51
+2025-12-07T00:38:32.0496723Z Deleting the contents of '/home/runner/work/Browse51/Browse51'
+2025-12-07T00:38:32.0500950Z ##[group]Initializing the repository
+2025-12-07T00:38:32.0505744Z [command]/usr/bin/git init /home/runner/work/Browse51/Browse51
+2025-12-07T00:38:32.0646120Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-12-07T00:38:32.0647459Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2025-12-07T00:38:32.0649377Z hint: to use in all of your new repositories, which will suppress this warning,
+2025-12-07T00:38:32.0650386Z hint: call:
+2025-12-07T00:38:32.0651083Z hint:
+2025-12-07T00:38:32.0651728Z hint: 	git config --global init.defaultBranch <name>
+2025-12-07T00:38:32.0652550Z hint:
+2025-12-07T00:38:32.0653331Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-12-07T00:38:32.0654631Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-12-07T00:38:32.0655533Z hint:
+2025-12-07T00:38:32.0656169Z hint: 	git branch -m <name>
+2025-12-07T00:38:32.0656771Z hint:
+2025-12-07T00:38:32.0658126Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-12-07T00:38:32.0659444Z Initialized empty Git repository in /home/runner/work/Browse51/Browse51/.git/
+2025-12-07T00:38:32.0664886Z [command]/usr/bin/git remote add origin https://github.com/danhtrinhdevelopermay/Browse51
+2025-12-07T00:38:32.0704188Z ##[endgroup]
+2025-12-07T00:38:32.0705491Z ##[group]Disabling automatic garbage collection
+2025-12-07T00:38:32.0709579Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-07T00:38:32.0740408Z ##[endgroup]
+2025-12-07T00:38:32.0741563Z ##[group]Setting up auth
+2025-12-07T00:38:32.0747315Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-07T00:38:32.0780156Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-07T00:38:32.1360928Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-07T00:38:32.1393239Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-07T00:38:32.2420818Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-07T00:38:32.2423672Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-07T00:38:32.2426168Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-07T00:38:32.2466107Z ##[endgroup]
+2025-12-07T00:38:32.2475069Z ##[group]Fetching the repository
+2025-12-07T00:38:32.2476006Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8c1659e45d035cf8789f9b79cbe8fa44e6450fba:refs/remotes/origin/main
+2025-12-07T00:38:32.6535299Z From https://github.com/danhtrinhdevelopermay/Browse51
+2025-12-07T00:38:32.6536189Z  * [new ref]         8c1659e45d035cf8789f9b79cbe8fa44e6450fba -> origin/main
+2025-12-07T00:38:32.6573607Z ##[endgroup]
+2025-12-07T00:38:32.6574505Z ##[group]Determining the checkout info
+2025-12-07T00:38:32.6576673Z ##[endgroup]
+2025-12-07T00:38:32.6582209Z [command]/usr/bin/git sparse-checkout disable
+2025-12-07T00:38:32.6624922Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-07T00:38:32.6651034Z ##[group]Checking out the ref
+2025-12-07T00:38:32.6654938Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-12-07T00:38:32.6748395Z Switched to a new branch 'main'
+2025-12-07T00:38:32.6750789Z branch 'main' set up to track 'origin/main'.
+2025-12-07T00:38:32.6757179Z ##[endgroup]
+2025-12-07T00:38:32.6793571Z [command]/usr/bin/git log -1 --format=%H
+2025-12-07T00:38:32.6815885Z 8c1659e45d035cf8789f9b79cbe8fa44e6450fba
+2025-12-07T00:38:32.7102008Z ##[group]Run actions/setup-java@v4
+2025-12-07T00:38:32.7102293Z with:
+2025-12-07T00:38:32.7102468Z   java-version: 17
+2025-12-07T00:38:32.7102662Z   distribution: temurin
+2025-12-07T00:38:32.7102859Z   java-package: jdk
+2025-12-07T00:38:32.7103051Z   check-latest: false
+2025-12-07T00:38:32.7103240Z   server-id: github
+2025-12-07T00:38:32.7103624Z   server-username: GITHUB_ACTOR
+2025-12-07T00:38:32.7103862Z   server-password: GITHUB_TOKEN
+2025-12-07T00:38:32.7104085Z   overwrite-settings: true
+2025-12-07T00:38:32.7104300Z   job-status: success
+2025-12-07T00:38:32.7104620Z   token: ***
+2025-12-07T00:38:32.7104808Z ##[endgroup]
+2025-12-07T00:38:32.9068953Z ##[group]Installed distributions
+2025-12-07T00:38:32.9139654Z Resolved Java 17.0.17+10 from tool-cache
+2025-12-07T00:38:32.9140473Z Setting Java 17.0.17+10 as the default
+2025-12-07T00:38:32.9153823Z Creating toolchains.xml for JDK version 17 from temurin
+2025-12-07T00:38:32.9231239Z Writing to /home/runner/.m2/toolchains.xml
+2025-12-07T00:38:32.9231751Z 
+2025-12-07T00:38:32.9231907Z Java configuration:
+2025-12-07T00:38:32.9233551Z   Distribution: temurin
+2025-12-07T00:38:32.9233963Z   Version: 17.0.17+10
+2025-12-07T00:38:32.9234672Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+2025-12-07T00:38:32.9235400Z 
+2025-12-07T00:38:32.9236278Z ##[endgroup]
+2025-12-07T00:38:32.9251270Z Creating settings.xml with server-id: github
+2025-12-07T00:38:32.9256697Z Writing to /home/runner/.m2/settings.xml
+2025-12-07T00:38:32.9480956Z ##[group]Run gradle/actions/setup-gradle@v3
+2025-12-07T00:38:32.9481266Z with:
+2025-12-07T00:38:32.9481444Z   gradle-version: 8.2
+2025-12-07T00:38:32.9481652Z   cache-disabled: false
+2025-12-07T00:38:32.9481851Z   cache-read-only: false
+2025-12-07T00:38:32.9482065Z   cache-write-only: false
+2025-12-07T00:38:32.9482288Z   cache-overwrite-existing: false
+2025-12-07T00:38:32.9482571Z   gradle-home-cache-includes: caches
+notifications
+
+2025-12-07T00:38:32.9482882Z   gradle-home-cache-cleanup: false
+2025-12-07T00:38:32.9483123Z   add-job-summary: always
+2025-12-07T00:38:32.9483483Z   add-job-summary-as-pr-comment: never
+2025-12-07T00:38:32.9483903Z   dependency-graph: disabled
+2025-12-07T00:38:32.9484339Z   dependency-graph-continue-on-failure: true
+2025-12-07T00:38:32.9484835Z   build-scan-publish: false
+2025-12-07T00:38:32.9485226Z   validate-wrappers: false
+2025-12-07T00:38:32.9485624Z   generate-job-summary: true
+2025-12-07T00:38:32.9486029Z   gradle-home-cache-strict-match: false
+2025-12-07T00:38:32.9486380Z   workflow-job-context: {
+  "flavor": "Browser4"
+}
+2025-12-07T00:38:32.9486810Z   github-token: ***
+2025-12-07T00:38:32.9487005Z env:
+2025-12-07T00:38:32.9487286Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+2025-12-07T00:38:32.9487744Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+2025-12-07T00:38:32.9488292Z ##[endgroup]
+2025-12-07T00:38:33.3490219Z Merged default JDK locations into /home/runner/.m2/toolchains.xml
+2025-12-07T00:38:33.3492750Z ##[group]Restore Gradle state from cache
+2025-12-07T00:38:33.4350547Z ##[warning]Failed to restore gradle-home-v1|Linux|build[027f6d2b5cae6b715fd5d75114585a28]-8c1659e45d035cf8789f9b79cbe8fa44e6450fba: Error: Cache service responded with 400
+2025-12-07T00:38:33.4402766Z Gradle User Home cache not found. Will initialize empty.
+2025-12-07T00:38:33.4403728Z ##[endgroup]
+2025-12-07T00:38:33.4846646Z ##[group]Provision Gradle 8.2
+2025-12-07T00:38:33.5205230Z ##[warning]Restore Gradle distribution 8.2 failed: Error: Cache service responded with 400
+2025-12-07T00:38:33.5207680Z Gradle distribution 8.2 not found in cache. Will download.
+2025-12-07T00:38:34.4062372Z Downloaded https://services.gradle.org/distributions/gradle-8.2-bin.zip to /home/runner/gradle-installations/downloads/gradle-8.2-bin.zip (size 128689645)
+2025-12-07T00:38:34.4225108Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Browse51/Browse51 --files-from manifest.txt --use-compress-program zstdmt
+2025-12-07T00:38:34.6478522Z ##[warning]Save Gradle distribution 8.2 failed: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0isw0aQAAAACDNbKo5YEtSpSgZB5nGZC9UEFPRURHRTA1MDkARWRnZQ==
+2025-12-07T00:38:34.6496239Z [command]/usr/bin/unzip -o -q /home/runner/gradle-installations/downloads/gradle-8.2-bin.zip
+2025-12-07T00:38:35.6000735Z Extracted Gradle 8.2 to /home/runner/gradle-installations/installs/gradle-8.2
+2025-12-07T00:38:35.6002058Z Provisioned Gradle executable /home/runner/gradle-installations/installs/gradle-8.2/bin/gradle
+2025-12-07T00:38:35.6004344Z ##[endgroup]
+2025-12-07T00:38:35.6140929Z ##[group]Run mkdir -p app/keystore
+2025-12-07T00:38:35.6141313Z [36;1mmkdir -p app/keystore[0m
+2025-12-07T00:38:35.6141673Z [36;1mkeytool -genkey -v -keystore app/keystore/release.keystore \[0m
+2025-12-07T00:38:35.6142090Z [36;1m  -alias key0 -keyalg RSA -keysize 2048 -validity 10000 \[0m
+2025-12-07T00:38:35.6142434Z [36;1m  -storepass android -keypass android \[0m
+2025-12-07T00:38:35.6142856Z [36;1m  -dname "CN=SecureBrowser, OU=Mobile, O=SecureBrowser, L=City, S=State, C=US"[0m
+2025-12-07T00:38:35.6177253Z shell: /usr/bin/bash -e {0}
+2025-12-07T00:38:35.6177512Z env:
+2025-12-07T00:38:35.6178075Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+2025-12-07T00:38:35.6178565Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+2025-12-07T00:38:35.6178959Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2025-12-07T00:38:35.6179247Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2025-12-07T00:38:35.6179556Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2025-12-07T00:38:35.6179954Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2025-12-07T00:38:35.6180417Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2025-12-07T00:38:35.6180732Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2025-12-07T00:38:35.6180984Z ##[endgroup]
+2025-12-07T00:38:36.4230106Z Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
+2025-12-07T00:38:36.4231260Z 	for: CN=SecureBrowser, OU=Mobile, O=SecureBrowser, L=City, ST=State, C=US
+2025-12-07T00:38:36.6512420Z [Storing app/keystore/release.keystore]
+2025-12-07T00:38:36.7584859Z ##[group]Run gradle assembleBrowser4Release --no-daemon
+2025-12-07T00:38:36.7585334Z [36;1mgradle assembleBrowser4Release --no-daemon[0m
+2025-12-07T00:38:36.7618599Z shell: /usr/bin/bash -e {0}
+2025-12-07T00:38:36.7618895Z env:
+2025-12-07T00:38:36.7619205Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+2025-12-07T00:38:36.7619675Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.17-10/x64
+2025-12-07T00:38:36.7620079Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2025-12-07T00:38:36.7620389Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2025-12-07T00:38:36.7620665Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2025-12-07T00:38:36.7621069Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2025-12-07T00:38:36.7621520Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2025-12-07T00:38:36.7621823Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2025-12-07T00:38:36.7622074Z ##[endgroup]
+2025-12-07T00:38:37.2848947Z 
+2025-12-07T00:38:37.2852138Z Welcome to Gradle 8.2!
+2025-12-07T00:38:37.2860520Z 
+2025-12-07T00:38:37.2863379Z Here are the highlights of this release:
+2025-12-07T00:38:37.2864081Z  - Kotlin DSL: new reference documentation, assignment syntax by default
+2025-12-07T00:38:37.2864830Z  - Kotlin DSL is now the default with Gradle init
+2025-12-07T00:38:37.2865427Z  - Improved suggestions to resolve errors in console output
+2025-12-07T00:38:37.2865910Z 
+2025-12-07T00:38:37.2866231Z For more details see https://docs.gradle.org/8.2/release-notes.html
+2025-12-07T00:38:37.2866698Z 
+2025-12-07T00:38:37.3840161Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2025-12-07T00:38:39.3829741Z Daemon will be stopped at the end of the build 
+2025-12-07T00:39:41.2870825Z > Task :app:buildKotlinToolingMetadata
+2025-12-07T00:39:41.2878068Z > Task :app:checkKotlinGradlePluginConfigurationErrors
+2025-12-07T00:39:41.2910835Z > Task :app:preBuild UP-TO-DATE
+2025-12-07T00:39:41.2911335Z > Task :app:preBrowser4ReleaseBuild UP-TO-DATE
+2025-12-07T00:39:46.3828457Z > Task :app:dataBindingMergeDependencyArtifactsBrowser4Release
+2025-12-07T00:39:46.5826998Z > Task :app:generateBrowser4ReleaseResValues
+2025-12-07T00:39:46.5829446Z > Task :app:generateBrowser4ReleaseResources
+2025-12-07T00:39:48.4839159Z > Task :app:packageBrowser4ReleaseResources
+2025-12-07T00:39:49.3826140Z > Task :app:mergeBrowser4ReleaseResources
+2025-12-07T00:39:51.6860078Z > Task :app:generateBrowser4ReleaseBuildConfig
+2025-12-07T00:39:51.7827676Z > Task :app:parseBrowser4ReleaseLocalResources
+2025-12-07T00:39:51.7828975Z > Task :app:checkBrowser4ReleaseAarMetadata
+2025-12-07T00:39:52.0829778Z > Task :app:dataBindingGenBaseClassesBrowser4Release
+2025-12-07T00:39:52.0830443Z > Task :app:mapBrowser4ReleaseSourceSetPaths
+2025-12-07T00:39:52.0831085Z > Task :app:createBrowser4ReleaseCompatibleScreenManifests
+2025-12-07T00:39:52.0831818Z > Task :app:extractDeepLinksBrowser4Release
+2025-12-07T00:39:52.3826846Z > Task :app:processBrowser4ReleaseMainManifest
+2025-12-07T00:39:52.4842416Z > Task :app:processBrowser4ReleaseManifest
+2025-12-07T00:39:52.4843351Z > Task :app:javaPreCompileBrowser4Release
+2025-12-07T00:39:52.4844126Z > Task :app:extractProguardFiles
+2025-12-07T00:39:52.4844875Z > Task :app:mergeBrowser4ReleaseJniLibFolders
+2025-12-07T00:39:52.8856982Z > Task :app:mergeBrowser4ReleaseNativeLibs NO-SOURCE
+2025-12-07T00:39:52.8861263Z > Task :app:stripBrowser4ReleaseDebugSymbols NO-SOURCE
+2025-12-07T00:39:52.8862436Z > Task :app:extractBrowser4ReleaseNativeSymbolTables NO-SOURCE
+2025-12-07T00:39:52.8873157Z > Task :app:mergeBrowser4ReleaseNativeDebugMetadata NO-SOURCE
+2025-12-07T00:39:53.2829957Z > Task :app:checkBrowser4ReleaseDuplicateClasses
+2025-12-07T00:39:53.2838673Z > Task :app:mergeBrowser4ReleaseArtProfile
+2025-12-07T00:39:53.2843801Z > Task :app:mergeBrowser4ReleaseShaders
+2025-12-07T00:39:53.2860654Z > Task :app:compileBrowser4ReleaseShaders NO-SOURCE
+2025-12-07T00:39:53.2861347Z > Task :app:generateBrowser4ReleaseAssets UP-TO-DATE
+2025-12-07T00:39:53.3842898Z > Task :app:mergeBrowser4ReleaseAssets
+2025-12-07T00:39:53.3843445Z > Task :app:compressBrowser4ReleaseAssets
+2025-12-07T00:39:53.3843964Z > Task :app:collectBrowser4ReleaseDependencies
+2025-12-07T00:39:53.4826005Z > Task :app:sdkBrowser4ReleaseDependencyData
+2025-12-07T00:39:53.4830260Z > Task :app:validateSigningBrowser4Release
+2025-12-07T00:39:53.4834501Z > Task :app:writeBrowser4ReleaseAppMetadata
+2025-12-07T00:39:53.4835766Z > Task :app:writeBrowser4ReleaseSigningConfigVersions
+2025-12-07T00:39:53.4836678Z > Task :app:processBrowser4ReleaseManifestForPackage
+2025-12-07T00:39:54.6858318Z 
+2025-12-07T00:39:54.6858854Z > Task :app:processBrowser4ReleaseResources FAILED
+2025-12-07T00:39:54.6859528Z FAILURE: Build failed with an exception.
+2025-12-07T00:39:54.6859867Z 
+2025-12-07T00:39:54.6860004Z * What went wrong:
+2025-12-07T00:39:54.6860580Z Execution failed for task ':app:processBrowser4ReleaseResources'.
+2025-12-07T00:39:54.6861841Z > A failure occurred while executing com.android.build.gradle.internal.res.LinkApplicationAndroidResourcesTask$TaskAction
+2025-12-07T00:39:54.6862894Z    > Android resource linking failed
+2025-12-07T00:39:54.6864369Z      ERROR: /home/runner/work/Browse51/Browse51/AntiBrowserFingerprint/app/src/main/res/mipmap-hdpi/ic_launcher.xml: AAPT: error: <adaptive-icon> elements require a sdk version of at least 26.
+2025-12-07T00:39:54.6865834Z          
+2025-12-07T00:39:54.6866018Z 
+2025-12-07T00:39:54.6866141Z * Try:
+2025-12-07T00:39:54.6866536Z > Run with --stacktrace option to get the stack trace.
+2025-12-07T00:39:54.6867165Z > Run with --info or --debug option to get more log output.
+2025-12-07T00:39:54.6867731Z > Run with --scan to get full insights.
+2025-12-07T00:39:54.6868480Z > Get more help at https://help.gradle.org.
+2025-12-07T00:39:54.6868829Z 
+2025-12-07T00:39:54.6868988Z BUILD FAILED in 1m 17s
+2025-12-07T00:39:54.6872256Z 30 actionable tasks: 30 executed
+2025-12-07T00:39:55.1464638Z ##[error]Process completed with exit code 1.
+2025-12-07T00:39:55.1631943Z Post job cleanup.
+2025-12-07T00:39:55.4046631Z In post-action step
+2025-12-07T00:39:55.4055094Z Stopping all Gradle daemons before saving Gradle User Home state
+2025-12-07T00:39:55.4056950Z Stopping Gradle daemons for /home/runner/gradle-installations/installs/gradle-8.2
+2025-12-07T00:39:55.4075471Z [command]/home/runner/gradle-installations/installs/gradle-8.2/bin/gradle --stop
+2025-12-07T00:39:56.2007984Z No Gradle daemons are running.
+2025-12-07T00:39:56.2214290Z ##[group]Caching Gradle state
+2025-12-07T00:39:56.2531701Z Caching generated-gradle-jars with path '/home/runner/.gradle/caches/8.2/generated-gradle-jars/gradle-api-8.2.jar' and cache key: gradle-generated-gradle-jars-v1-5f6a8613b478fd816378c9834ad14e25
+2025-12-07T00:39:56.2540938Z Caching generated-gradle-jars with path '/home/runner/.gradle/caches/8.2/generated-gradle-jars/gradle-kotlin-dsl-extensions-8.2.jar' and cache key: gradle-generated-gradle-jars-v1-688225baeac4a3a51a617774fb1fe1f4
+2025-12-07T00:39:56.2728809Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Browse51/Browse51 --files-from manifest.txt --use-compress-program zstdmt
+2025-12-07T00:39:56.2755705Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Browse51/Browse51 --files-from manifest.txt --use-compress-program zstdmt
+2025-12-07T00:39:56.3671878Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/8.2/generated-gradle-jars/gradle-kotlin-dsl-extensions-8.2.jar' and key: gradle-generated-gradle-jars-v1-688225baeac4a3a51a617774fb1fe1f4: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>03Mw0aQAAAADacxdElbCbS7zujMg2Yz1mUEFPRURHRTA1MTQARWRnZQ==
+2025-12-07T00:39:56.6944696Z Caching dependencies with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and cache key: gradle-dependencies-v1-a5506a1fde38d03a3140d273462d0305
+2025-12-07T00:39:56.7775790Z Caching instrumented-jars with path '/home/runner/.gradle/caches/jars-*/*/' and cache key: gradle-instrumented-jars-v1-770265be3955fd0936189049e7987d9e
+2025-12-07T00:39:56.8013497Z Caching kotlin-dsl with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
+2025-12-07T00:39:56.8014554Z /home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and cache key: gradle-kotlin-dsl-v1-6c76365498a7c86b1712aa69e20af278
+2025-12-07T00:39:56.8254820Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/8.2/generated-gradle-jars/gradle-api-8.2.jar' and key: gradle-generated-gradle-jars-v1-5f6a8613b478fd816378c9834ad14e25: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>03Mw0aQAAAADKzheSyIc7TrbgPYbHYLRZUEFPRURHRTA1MjAARWRnZQ==
+2025-12-07T00:39:56.8771870Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Browse51/Browse51 --files-from manifest.txt --use-compress-program zstdmt
+2025-12-07T00:39:56.9334943Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Browse51/Browse51 --files-from manifest.txt --use-compress-program zstdmt
+2025-12-07T00:39:56.9663790Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
+/home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and key: gradle-kotlin-dsl-v1-6c76365498a7c86b1712aa69e20af278: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>03Mw0aQAAAAA3PYQ9sfKSQYGcwBZ/+mAzUEFPRURHRTA1MTAARWRnZQ==
+2025-12-07T00:39:57.2264725Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Browse51/Browse51 --files-from manifest.txt --use-compress-program zstdmt
+2025-12-07T00:39:58.1158308Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and key: gradle-dependencies-v1-a5506a1fde38d03a3140d273462d0305: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>03sw0aQAAAAAcJ+hcI7lASaFgO4PdlQJTUEFPRURHRTA2MjAARWRnZQ==
+2025-12-07T00:39:58.3056837Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/jars-*/*/' and key: gradle-instrumented-jars-v1-770265be3955fd0936189049e7987d9e: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>03sw0aQAAAAATTtdkhFReQIRTnklWJfAuUEFPRURHRTA2MTQARWRnZQ==
+2025-12-07T00:39:58.4027734Z Caching Gradle User Home with cache key: gradle-home-v1|Linux|build[027f6d2b5cae6b715fd5d75114585a28]-8c1659e45d035cf8789f9b79cbe8fa44e6450fba
+2025-12-07T00:39:58.4116982Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Browse51/Browse51 --files-from manifest.txt --use-compress-program zstdmt
+2025-12-07T00:39:58.6763674Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/.setup-gradle' and key: gradle-home-v1|Linux|build[027f6d2b5cae6b715fd5d75114585a28]-8c1659e45d035cf8789f9b79cbe8fa44e6450fba: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>03sw0aQAAAABpaySptZXjT6UhgvN3svXaUEFPRURHRTA1MTkARWRnZQ==
+2025-12-07T00:39:58.6767332Z ##[endgroup]
+2025-12-07T00:39:58.6768193Z Generating Job Summary
+2025-12-07T00:39:58.6781473Z Completed post-action step
+2025-12-07T00:39:58.6954089Z Post job cleanup.
+2025-12-07T00:39:58.8732386Z Post job cleanup.
+2025-12-07T00:39:58.9704280Z [command]/usr/bin/git version
+2025-12-07T00:39:58.9741289Z git version 2.52.0
+2025-12-07T00:39:58.9784971Z Temporarily overriding HOME='/home/runner/work/_temp/f4c0efe6-12e1-4362-a76b-736e155a3c60' before making global git config changes
+2025-12-07T00:39:58.9786451Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-07T00:39:58.9791262Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Browse51/Browse51
+2025-12-07T00:39:58.9827966Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-07T00:39:58.9860813Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-07T00:39:59.0096137Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-07T00:39:59.0118689Z http.https://github.com/.extraheader
+2025-12-07T00:39:59.0133302Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-12-07T00:39:59.0166606Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-07T00:39:59.0389967Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-07T00:39:59.0424907Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-07T00:39:59.0767456Z Cleaning up orphan processes
