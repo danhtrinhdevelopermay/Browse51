@@ -1,6 +1,7 @@
 package com.browser.antifingerprint
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -8,8 +9,11 @@ import android.os.Bundle
 import android.os.Message
 import android.view.KeyEvent
 import android.view.View
+import android.view.ViewGroup
+import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.webkit.*
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.browser.antifingerprint.databinding.ActivityMainBinding
@@ -21,6 +25,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private lateinit var progressBar: ProgressBar
     private lateinit var fingerprintProfile: FingerprintProfile
+    
+    // Store popup dialogs to manage their lifecycle
+    private val popupDialogs = mutableListOf<Dialog>()
+    private val popupWebViews = mutableListOf<WebView>()
     
     companion object {
         private const val WEBVIEW_STATE_KEY = "webview_state"
@@ -163,13 +171,39 @@ class MainActivity : AppCompatActivity() {
             ): Boolean {
                 if (view == null || resultMsg == null) return false
                 
-                val newWebView = WebView(view.context).apply {
-                    settings.javaScriptEnabled = true
-                    settings.domStorageEnabled = true
-                    settings.javaScriptCanOpenWindowsAutomatically = true
-                    settings.setSupportMultipleWindows(true)
-                    settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-                    settings.userAgentString = fingerprintProfile.userAgent
+                // Create a popup dialog to hold the new WebView
+                val popupDialog = Dialog(this@MainActivity, android.R.style.Theme_DeviceDefault_NoActionBar).apply {
+                    requestWindowFeature(Window.FEATURE_NO_TITLE)
+                    setCancelable(true)
+                    setCanceledOnTouchOutside(false)
+                }
+                
+                // Create container for the popup WebView
+                val container = FrameLayout(this@MainActivity).apply {
+                    layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT
+                    )
+                }
+                
+                @SuppressLint("SetJavaScriptEnabled")
+                val popupWebView = WebView(this@MainActivity).apply {
+                    layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT
+                    )
+                    
+                    settings.apply {
+                        javaScriptEnabled = true
+                        domStorageEnabled = true
+                        databaseEnabled = true
+                        javaScriptCanOpenWindowsAutomatically = true
+                        setSupportMultipleWindows(true)
+                        mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+                        userAgentString = fingerprintProfile.userAgent
+                        allowContentAccess = true
+                        cacheMode = WebSettings.LOAD_DEFAULT
+                    }
                     
                     webViewClient = object : WebViewClient() {
                         override fun shouldOverrideUrlLoading(
@@ -177,8 +211,18 @@ class MainActivity : AppCompatActivity() {
                             request: WebResourceRequest?
                         ): Boolean {
                             val url = request?.url?.toString() ?: return false
-                            this@MainActivity.webView.loadUrl(url)
-                            CookieManager.getInstance().flush()
+                            // Handle OAuth callback - check if it's a redirect back to the original site
+                            if (url.startsWith("http://") || url.startsWith("https://")) {
+                                // Let the popup WebView handle the URL normally
+                                return false
+                            }
+                            // For non-http URLs, try to open in external app
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
                             return true
                         }
                         
@@ -187,21 +231,74 @@ class MainActivity : AppCompatActivity() {
                             CookieManager.getInstance().flush()
                         }
                     }
+                    
+                    webChromeClient = object : WebChromeClient() {
+                        override fun onCloseWindow(window: WebView?) {
+                            // When popup requests to close, dismiss the dialog
+                            popupDialog.dismiss()
+                            cleanupPopup(popupDialog, this@apply)
+                            CookieManager.getInstance().flush()
+                        }
+                        
+                        // Support nested popups if needed
+                        override fun onCreateWindow(
+                            view: WebView?,
+                            isDialog: Boolean,
+                            isUserGesture: Boolean,
+                            resultMsg: Message?
+                        ): Boolean {
+                            return this@MainActivity.webView.webChromeClient?.onCreateWindow(
+                                view, isDialog, isUserGesture, resultMsg
+                            ) ?: false
+                        }
+                    }
                 }
                 
+                // Setup cookies for popup
                 CookieManager.getInstance().apply {
                     setAcceptCookie(true)
-                    setAcceptThirdPartyCookies(newWebView, true)
+                    setAcceptThirdPartyCookies(popupWebView, true)
                 }
                 
+                // Store references for cleanup
+                popupDialogs.add(popupDialog)
+                popupWebViews.add(popupWebView)
+                
+                // Add WebView to container and dialog
+                container.addView(popupWebView)
+                popupDialog.setContentView(container)
+                
+                // Handle dialog dismissal
+                popupDialog.setOnDismissListener {
+                    cleanupPopup(popupDialog, popupWebView)
+                    CookieManager.getInstance().flush()
+                }
+                
+                // Show the popup dialog
+                popupDialog.show()
+                
+                // Configure dialog window size (almost full screen)
+                popupDialog.window?.apply {
+                    setLayout(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT
+                    )
+                }
+                
+                // Send the WebView transport
                 val transport = resultMsg.obj as WebView.WebViewTransport
-                transport.webView = newWebView
+                transport.webView = popupWebView
                 resultMsg.sendToTarget()
                 return true
             }
 
             override fun onCloseWindow(window: WebView?) {
                 super.onCloseWindow(window)
+                // Find and close the popup containing this window
+                val index = popupWebViews.indexOf(window)
+                if (index >= 0 && index < popupDialogs.size) {
+                    popupDialogs[index].dismiss()
+                }
                 CookieManager.getInstance().flush()
             }
         }
@@ -285,8 +382,39 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        // Clean up all popups
+        cleanupAllPopups()
         CookieManager.getInstance().flush()
         webView.destroy()
         super.onDestroy()
+    }
+    
+    private fun cleanupPopup(dialog: Dialog, webView: WebView) {
+        try {
+            webView.stopLoading()
+            webView.destroy()
+            popupWebViews.remove(webView)
+            popupDialogs.remove(dialog)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+    
+    private fun cleanupAllPopups() {
+        for (i in popupDialogs.indices.reversed()) {
+            try {
+                if (popupDialogs[i].isShowing) {
+                    popupDialogs[i].dismiss()
+                }
+                popupWebViews.getOrNull(i)?.apply {
+                    stopLoading()
+                    destroy()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+        popupDialogs.clear()
+        popupWebViews.clear()
     }
 }
